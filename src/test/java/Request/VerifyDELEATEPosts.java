@@ -12,10 +12,10 @@ public class VerifyDELEATEPosts extends BaseTest {
     @Test
     public void verifyDELETEPosts(){
         PostJSONPOJO ps = new PostJSONPOJO();
-        ps.setUserId(77777);
+        ps.setUserId(expectedValue);
 
 
-        given().body(ps).
+                given().body(ps).
                 when().delete("posts/1").
                 then().statusCode(200);
     }
@@ -23,10 +23,10 @@ public class VerifyDELEATEPosts extends BaseTest {
     @Test
     public void verifyNegativeDELETEPosts(){
         PostJSONPOJO ps = new PostJSONPOJO();
-        ps.setUserId(77777);
+        ps.setUserId(expectedValue);
 
 
-        given().body(ps).
+                given().body(ps).
                 when().delete("post/1").
                 then().statusCode(404);
     }

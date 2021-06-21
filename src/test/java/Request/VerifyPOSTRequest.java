@@ -16,27 +16,27 @@ public class VerifyPOSTRequest extends BaseTest {
     @Test
     public void verifyPOSTPosts(){
         PostJSONPOJO ps = new PostJSONPOJO();
-        ps.setUserId(3);
-        ps.setId(101);
-        ps.setTitle("CreatedPostTitle");
-        ps.setBody("Body of created post");
+        ps.setUserId(expectedValue);
+        ps.setId(expectedID);
+        ps.setTitle(expectedTitle);
+        ps.setBody(expectedBody);
 
-        given().body(ps).
-        when().post("/posts").
+                given().body(ps).
+                when().post("/posts").
                 then().statusCode(201);
-        assertThat( ps.getTitle() , is ("CreatedPostTitle") ) ;
+                assertThat( ps.getTitle() , is (expectedTitle) ) ;
 
     }
     @DisplayName("Negative wrong endpoint POST//post")
     @Test
     public void verifyWrongEndpointPOSTPost(){
         PostJSONPOJO ps = new PostJSONPOJO();
-        ps.setUserId(3);
-        ps.setId(101);
-        ps.setTitle("CreatedPostTitle");
-        ps.setBody("Body of created post");
+        ps.setUserId(expectedValue);
+        ps.setId(expectedID);
+        ps.setTitle(expectedTitle);
+        ps.setBody(expectedBody);
 
-        given().body(ps).
+                given().body(ps).
                 when().post("/post").
                 then().statusCode(404);
     }
