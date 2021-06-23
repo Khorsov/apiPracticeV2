@@ -19,7 +19,7 @@ public class VerifyPATCHRequest extends BaseTest {
 
                 given().body(ps).
                 when().patch("posts/1").
-                then().statusCode(200);
+                then().statusCode(status200);
                 assertThat( ps.getUserId() , is (expectedValue) ) ;
 
     }
@@ -32,7 +32,7 @@ public class VerifyPATCHRequest extends BaseTest {
 
                 given().body(ps).
                 when().patch("post/1").
-                then().statusCode(404);
+                then().statusCode(status404);
 
 
     }

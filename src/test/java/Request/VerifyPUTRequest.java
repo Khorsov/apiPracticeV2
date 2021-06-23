@@ -19,9 +19,9 @@ public class VerifyPUTRequest extends BaseTest{
         ps2.setBody(expectedBody);
                 given().body(ps2).
                 when().put("/posts/1").
-                then().statusCode(200)
+                then().statusCode(status200)
         ;
-        assertThat( ps2.getUserId() , is (expectedValue) ) ;
+
 
     }
     @DisplayName("Negative PUT//post/1")
@@ -34,7 +34,7 @@ public class VerifyPUTRequest extends BaseTest{
         ps2.setBody(expectedBody);
                 given().body(ps2).
                 when().put("/post/1").
-                then().statusCode(404)
+                then().statusCode(status404)
         ;
 
 

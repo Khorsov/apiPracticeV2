@@ -17,7 +17,7 @@ public class VerifyDELEATEPosts extends BaseTest {
 
                 given().body(ps).
                 when().delete("posts/1").
-                then().statusCode(200);
+                then().statusCode(status200);
     }
     @DisplayName("Negative DELETE//posts/1")
     @Test
@@ -28,6 +28,6 @@ public class VerifyDELEATEPosts extends BaseTest {
 
                 given().body(ps).
                 when().delete("post/1").
-                then().statusCode(404);
+                then().statusCode(status404);
     }
 }

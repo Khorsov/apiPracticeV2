@@ -1,5 +1,8 @@
 package Request;
 
+import io.restassured.path.json.JsonPath;
+import io.restassured.response.Response;
+import io.restassured.response.ValidatableResponse;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.testng.Assert;
@@ -21,10 +24,12 @@ public class VerifyPOSTRequest extends BaseTest {
         ps.setTitle(expectedTitle);
         ps.setBody(expectedBody);
 
-                given().body(ps).
+                Response response = given().body(ps).
                 when().post("/posts").
-                then().statusCode(201);
-                assertThat( ps.getTitle() , is (expectedTitle) ) ;
+                then().statusCode(status200).extract().response();
+
+
+
 
     }
     @DisplayName("Negative wrong endpoint POST//post")
@@ -38,7 +43,7 @@ public class VerifyPOSTRequest extends BaseTest {
 
                 given().body(ps).
                 when().post("/post").
-                then().statusCode(404);
+                then().statusCode(status404);
     }
 
 }
