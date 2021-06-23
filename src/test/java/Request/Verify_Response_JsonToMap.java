@@ -12,14 +12,7 @@ import static io.restassured.RestAssured.*;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class Verify_Response_JsonToMap extends BaseTest{
-    /*
-    {
-    "userId": 1,
-    "id": 2,
-    "title": "qui est esse",
-    "body": "est rerum tempore vitaensequi sint "
-  }
-     */
+
     @Test
     public void test1(){
         Response response = given().accept(ContentType.JSON) //JSON
